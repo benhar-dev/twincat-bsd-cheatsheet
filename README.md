@@ -35,6 +35,19 @@ after upgrading, dont forget to restart system with
 doas shutdown -r now
 ```
 
+## Write Filter
+The dataset zroot/ROOT/default, which contains most of the system and TwinCAT, is protected against write accesses when the write filter is active. No other datasets are covered by the write filter. For example, user files can still be persistently stored at /usr/home or log files at /var/log, even if the rest of the system is reset after a restart.
+
+### Enable
+```bash
+doas service bwf enable
+```
+
+### Disable
+```bash
+doas service bwf disable
+```
+
 ## Firewall
 ### Stop
 ```bash
