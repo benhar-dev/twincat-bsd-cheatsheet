@@ -106,6 +106,12 @@ doas pfctl -f /etc/pf.conf
 passwd
 ```
 
+## Setting Isolated cores
+The following command will set one core as being isolated.  You can see core informtion using `TcCoreConf`.
+```bash
+TcCoreConf –s 1
+```
+
 # File System
 
 ## Overview of important TwinCAT/BSD directories.
