@@ -56,3 +56,8 @@ Restart the firewall with new rule
 ```bash
 doas pfctl -f /etc/pf.conf
 ```
+
+## Change user password
+```bash
+passwd
+```
