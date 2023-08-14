@@ -29,6 +29,8 @@ doas pkg upgrade
 ### Update major version
 ```bash
 doas pkg update -f && doas pkg upgrade
+doas pkg install tcbsd-upgrade
+doas tcbsd-upgrade major
 ```
 after upgrading, dont forget to restart system with
 ```bash
