@@ -48,6 +48,35 @@ doas service bwf enable
 doas service bwf disable
 ```
 
+### Example, Exclude TwinCAT Boot Folder
+Exceptions for the write filter can be defined by creating new zfs datasets, since only the dataset zroot/ROOT/default is protected from write accesses; all other system datasets, including newly created datasets, are excluded from the protection.
+
+1. Delete the current boot directory and all it's contents
+   ```bash
+   doas rm -rf /usr/local/etc/TwinCAT/3.1/Boot/*.
+   ```
+2. Create a new ZFS dataset named zroot/usr/TwinCAT-Boot and mount it at /usr/local/etc/TwinCAT/3.1/Boot.
+   ```bash
+   doas zfs create -o mountpoint=/usr/local/etc/TwinCAT/3.1/Boot zroot/usr/TwinCAT-Boot
+   ```
+Any data stored in this dataset will be accessible at this location and is excluded from the write filter
+
+### Reversal of the above example, 
+In case you need to reverse the changes made in the above example and revert the directory to being managed by `zroot/ROOT/default`, you can follow these steps:
+
+1. **Unmount the new dataset**:
+   ```bash
+   doas zfs unmount zroot/usr/TwinCAT-Boot
+   ```
+2. Destroy the new dataset
+   ```bash
+   doas zfs destroy zroot/usr/TwinCAT-Boot
+   ```
+3. Recreate the directory within the original dataset
+   ```bash
+   doas mkdir -p /usr/local/etc/TwinCAT/3.1/Boot
+   ```
+   
 ## Firewall
 ### Stop
 ```bash
