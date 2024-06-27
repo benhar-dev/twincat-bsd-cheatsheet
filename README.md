@@ -21,6 +21,13 @@ restorepoint status
 doas restorepoint rollback
 ```
 
+## Package Management
+
+### See what packages are installed
+```bash
+pkg info
+```
+
 ## System Update
 Before updating or upgrading your system make sure to have a proper restore point created beforehand
 ### Update packages
