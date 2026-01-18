@@ -86,7 +86,12 @@ In case you need to reverse the changes made in the above example and revert the
    ```bash
    doas mkdir -p /usr/local/etc/TwinCAT/3.1/Boot
    ```
-   
+## Ads
+### Get the local AMS Net Id
+```bash
+ads localhost netid
+```
+
 ## Firewall
 ### Stop
 ```bash
