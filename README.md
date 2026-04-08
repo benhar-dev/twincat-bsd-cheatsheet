@@ -28,6 +28,19 @@ doas restorepoint rollback
 pkg info
 ```
 
+### Helpful if the list is too long, use less
+```bash
+pkg info | less
+```
+
+####
+Useful keys in less:
+
+* ```Space``` = next page
+* ```b``` = previous page
+* ```/text``` = search
+* ```q``` = quit
+
 ## System Update
 Before updating or upgrading your system make sure to have a proper restore point created beforehand
 ### Update packages
